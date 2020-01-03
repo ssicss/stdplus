@@ -1,0 +1,70 @@
+[
+    {
+        "arguments": [
+            "gcc", 
+            "-c", 
+            "-DHAVE_CONFIG_H", 
+            "-I.", 
+            "-I..", 
+            "-I./inc", 
+            "-g", 
+            "-O2", 
+            "-o", 
+            "src/libstdplus_a-stdplus_linklist.o", 
+            "src/stdplus_linklist.c"
+        ], 
+        "directory": "/home/wangkai/project/stdplus", 
+        "file": "src/stdplus_linklist.c"
+    }, 
+    {
+        "arguments": [
+            "gcc", 
+            "-c", 
+            "-DHAVE_CONFIG_H", 
+            "-I.", 
+            "-I..", 
+            "-I./inc", 
+            "-g", 
+            "-O2", 
+            "-o", 
+            "modules/libstdplus_a-communication.o", 
+            "modules/communication.c"
+        ], 
+        "directory": "/home/wangkai/project/stdplus", 
+        "file": "modules/communication.c"
+    }, 
+    {
+        "arguments": [
+            "gcc", 
+            "-c", 
+            "-DHAVE_CONFIG_H", 
+            "-I.", 
+            "-I..", 
+            "-I./inc", 
+            "-g", 
+            "-O2", 
+            "-o", 
+            "modules/libstdplus_a-log.o", 
+            "modules/log.c"
+        ], 
+        "directory": "/home/wangkai/project/stdplus", 
+        "file": "modules/log.c"
+    }, 
+    {
+        "arguments": [
+            "gcc", 
+            "-c", 
+            "-DHAVE_CONFIG_H", 
+            "-I.", 
+            "-I..", 
+            "-I./inc", 
+            "-g", 
+            "-O2", 
+            "-o", 
+            "src/libstdplus_a-stdplus_queue.o", 
+            "src/stdplus_queue.c"
+        ], 
+        "directory": "/home/wangkai/project/stdplus", 
+        "file": "src/stdplus_queue.c"
+    }
+]
