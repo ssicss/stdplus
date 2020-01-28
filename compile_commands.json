@@ -1,70 +1,97 @@
 [
     {
         "arguments": [
-            "gcc", 
-            "-c", 
-            "-DHAVE_CONFIG_H", 
-            "-I.", 
-            "-I..", 
-            "-I./inc", 
-            "-g", 
-            "-O2", 
-            "-o", 
-            "src/libstdplus_a-stdplus_linklist.o", 
-            "src/stdplus_linklist.c"
-        ], 
-        "directory": "/home/wangkai/project/stdplus", 
-        "file": "src/stdplus_linklist.c"
-    }, 
+            "gcc",
+            "-c",
+            "-DHAVE_CONFIG_H",
+            "-I.",
+            "-I..",
+            "-I/home/wangkai/project/stdplus/inc",
+            "-std=c99",
+            "-O0",
+            "-g",
+            "-Wall",
+            "-o",
+            "libstdplus_a-queue.o",
+            "queue.c"
+        ],
+        "directory": "/home/wangkai/project/stdplus/src",
+        "file": "queue.c"
+    },
     {
         "arguments": [
-            "gcc", 
-            "-c", 
-            "-DHAVE_CONFIG_H", 
-            "-I.", 
-            "-I..", 
-            "-I./inc", 
-            "-g", 
-            "-O2", 
-            "-o", 
-            "modules/libstdplus_a-communication.o", 
-            "modules/communication.c"
-        ], 
-        "directory": "/home/wangkai/project/stdplus", 
-        "file": "modules/communication.c"
-    }, 
+            "gcc",
+            "-c",
+            "-DHAVE_CONFIG_H",
+            "-I.",
+            "-I..",
+            "-I/home/wangkai/project/stdplus/inc",
+            "-std=c99",
+            "-O0",
+            "-g",
+            "-Wall",
+            "-o",
+            "libstdplus_a-linklist.o",
+            "linklist.c"
+        ],
+        "directory": "/home/wangkai/project/stdplus/src",
+        "file": "linklist.c"
+    },
     {
         "arguments": [
-            "gcc", 
-            "-c", 
-            "-DHAVE_CONFIG_H", 
-            "-I.", 
-            "-I..", 
-            "-I./inc", 
-            "-g", 
-            "-O2", 
-            "-o", 
-            "modules/libstdplus_a-log.o", 
-            "modules/log.c"
-        ], 
-        "directory": "/home/wangkai/project/stdplus", 
-        "file": "modules/log.c"
-    }, 
+            "gcc",
+            "-c",
+            "-DHAVE_CONFIG_H",
+            "-I.",
+            "-I..",
+            "-I/home/wangkai/project/stdplus/inc",
+            "-std=c99",
+            "-O0",
+            "-g",
+            "-Wall",
+            "-o",
+            "test_core_out-test_core.o",
+            "test_core.c"
+        ],
+        "directory": "/home/wangkai/project/stdplus/unit_test",
+        "file": "test_core.c"
+    },
     {
         "arguments": [
-            "gcc", 
-            "-c", 
-            "-DHAVE_CONFIG_H", 
-            "-I.", 
-            "-I..", 
-            "-I./inc", 
-            "-g", 
-            "-O2", 
-            "-o", 
-            "src/libstdplus_a-stdplus_queue.o", 
-            "src/stdplus_queue.c"
-        ], 
-        "directory": "/home/wangkai/project/stdplus", 
-        "file": "src/stdplus_queue.c"
+            "gcc",
+            "-c",
+            "-DHAVE_CONFIG_H",
+            "-I.",
+            "-I..",
+            "-I/home/wangkai/project/stdplus/inc",
+            "-std=c99",
+            "-O0",
+            "-g",
+            "-Wall",
+            "-o",
+            "libstdplus_a-stdplus.o",
+            "stdplus.c"
+        ],
+        "directory": "/home/wangkai/project/stdplus/src",
+        "file": "stdplus.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-DHAVE_CONFIG_H",
+            "-I.",
+            "-I..",
+            "-I/home/wangkai/project/stdplus/inc",
+            "-std=c99",
+            "-O0",
+            "-g",
+            "-Wall",
+            "-o",
+            "test_core_out-test_linklist.o",
+            "test_linklist.c"
+        ],
+        "directory": "/home/wangkai/project/stdplus/unit_test",
+        "file": "test_linklist.c"
     }
 ]

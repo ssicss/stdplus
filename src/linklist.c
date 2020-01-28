@@ -28,27 +28,27 @@
 static SP_INLINE struct listnode *listnode_new (void)
 {
         assert(stdplus);
-        return (struct listnode *)stdplus->hook.sp_calloc(1,sizeof (struct listnode));
+        return (struct listnode *)CALLOC_METHOD(1,sizeof (struct listnode));
 }
  
 static SP_INLINE void listnode_free (struct listnode *node)
 {
         assert(stdplus);
         assert(node);
-        stdplus->hook.sp_free(node);
+        FREE_METHOD(node);
 }
 
 struct list *list_new (void)
 {
         assert(stdplus);
-        return (struct list *)stdplus->hook.sp_calloc(1, sizeof(struct list));
+        return (struct list *)CALLOC_METHOD(1, sizeof(struct list));
 }
  
 void list_free (struct list *list)
 {
         assert(stdplus);
         assert(list);
-        stdplus->hook.sp_free(list);
+        FREE_METHOD(list);
 }
 
 void listnode_add (struct list *list, void *val)
@@ -292,12 +292,32 @@ void list_add_node_next (struct list *list, struct listnode *current, void *val)
         list->count++;
 }
  
-void list_add_list (struct list *l, struct list *m)
+void list_add_list (struct list *list, struct list *m)
 {
         struct listnode *n;
 
         for (n = listhead (m); n; n = listnextnode (n))
-                listnode_add (l, n->data);
+                listnode_add (list, n->data);
 }
 
+void list_show_allnode(struct list *list)
+{
+	int i = 0;
+
+        assert(list);
+	CHECK_METHOD
+	if(list->count == 0){
+		stdplus->method.sp_printf("no node is this list\n");
+		return;
+	}
+
+	struct listnode *node = list->head;
+	stdplus->method.sp_printf("<node>\t<point>\n");
+	while(node->next != NULL)
+	{
+		stdplus->method.sp_printf("  %d   0x%x\n", i++, node);
+		node = node->next;
+	}
+	stdplus->method.sp_printf("  %d   0x%x\n", i++, node);
+}
 

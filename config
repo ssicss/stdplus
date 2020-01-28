@@ -1,0 +1,13 @@
+#
+# Automatically generated file; DO NOT EDIT.
+# Stdplus - a extern c library
+#
+
+#
+# *** select modules you want to support ***
+#
+
+#
+# MODULE_INCLUDE
+#
+MODULE_BOOTLOADER=y

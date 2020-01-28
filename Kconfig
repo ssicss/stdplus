@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+mainmenu "Stdplus - a extern c library"
+comment "*** select modules you want to support ***"
+
+menu MODULE_INCLUDE
+config MODULE_BOOTLOADER
+	bool "bootload module, iap"
+	help
+	"bootload"
+config MODULE_LOG
+	bool "log module, iap"
+	help
+	"log"
+endmenu
+
+	

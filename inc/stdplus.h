@@ -42,26 +42,23 @@
 #define SP_INLINE 
 #endif
 
-typedef void *(*sp_calloc_t)(size_t, size_t);
-typedef void (*sp_free_t)(void *);
+#define CHECK_METHOD \
+	assert(stdplus);\
+	assert(stdplus->method.sp_printf);
+
 typedef int32_t (*sp_printf_t)(const char * restrict, ...);
 
-struct hook{
-        sp_calloc_t sp_calloc;
-        sp_free_t sp_free;
+struct common_method{
         sp_printf_t sp_printf;
 }__attribute__((packed));
 
 struct stdplus{
-        struct hook hook;
+        struct common_method method;
 }__attribute__((packed));
 
 
-
 extern struct stdplus *stdplus;
-extern int8_t stdplus_register(sp_calloc_t sp_calloc,
-                        sp_free_t sp_free,
-                        sp_printf_t sp_printf);
+extern int8_t stdplus_register(sp_printf_t sp_printf);
 
 extern void stdplus_destory(void);
 
@@ -121,6 +118,7 @@ extern void list_delete_node (struct list *, struct listnode *);
 extern void list_add_node_prev (struct list *, struct listnode *, void *);
 extern void list_add_node_next (struct list *, struct listnode *, void *);
 extern void list_add_list (struct list *, struct list *);
+extern void list_show_allnode(struct list *list);
  
 /* List iteration macro. 
  * Usage: for (ALL_LIST_ELEMENTS (...) { ... }
@@ -172,5 +170,14 @@ extern void list_add_list (struct list *, struct list *);
       (L)->tail = (N)->prev; \
     (L)->count--; \
   } while (0)
+
+
+
+struct queue *queue_new(const uint32_t node_size, const uint32_t node_count);
+int8_t queue_push(struct queue *queue, const void *node);
+int8_t queue_pop(struct queue* queue, uint8_t *node);
+uint32_t queue_node_count(const struct queue* queue);
+void queue_show_allnode(struct queue *queue);
+
 
 #endif

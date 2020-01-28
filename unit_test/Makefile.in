@@ -98,7 +98,9 @@ CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
-am_test_core_out_OBJECTS = test_core_out-test_core.$(OBJEXT)
+am_test_core_out_OBJECTS = test_core_out-test_core.$(OBJEXT) \
+	test_core_out-test_linklist.$(OBJEXT) \
+	test_core_out-test_queue.$(OBJEXT)
 test_core_out_OBJECTS = $(am_test_core_out_OBJECTS)
 test_core_out_DEPENDENCIES = ${ROOT_DIR}/src/libstdplus.a
 test_core_out_LINK = $(CCLD) $(test_core_out_CFLAGS) $(CFLAGS) \
@@ -118,7 +120,9 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/test_core_out-test_core.Po
+am__depfiles_remade = ./$(DEPDIR)/test_core_out-test_core.Po \
+	./$(DEPDIR)/test_core_out-test_linklist.Po \
+	./$(DEPDIR)/test_core_out-test_queue.Po
 am__mv = mv -f
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -253,7 +257,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-test_core_out_SOURCES = test_core.c
+test_core_out_SOURCES = test_core.c\
+			test_linklist.c\
+			test_queue.c
+
 test_core_out_LDADD = ${ROOT_DIR}/src/libstdplus.a 
 test_core_out_CFLAGS = $(AM_CFLAGS) -Wl,-Map=test_core.map
 all: all-am
@@ -304,6 +311,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_core_out-test_core.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_core_out-test_linklist.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_core_out-test_queue.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
 	@$(MKDIR_P) $(@D)
@@ -340,6 +349,34 @@ test_core_out-test_core.obj: test_core.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test_core.c' object='test_core_out-test_core.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -c -o test_core_out-test_core.obj `if test -f 'test_core.c'; then $(CYGPATH_W) 'test_core.c'; else $(CYGPATH_W) '$(srcdir)/test_core.c'; fi`
+
+test_core_out-test_linklist.o: test_linklist.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -MT test_core_out-test_linklist.o -MD -MP -MF $(DEPDIR)/test_core_out-test_linklist.Tpo -c -o test_core_out-test_linklist.o `test -f 'test_linklist.c' || echo '$(srcdir)/'`test_linklist.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_core_out-test_linklist.Tpo $(DEPDIR)/test_core_out-test_linklist.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test_linklist.c' object='test_core_out-test_linklist.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -c -o test_core_out-test_linklist.o `test -f 'test_linklist.c' || echo '$(srcdir)/'`test_linklist.c
+
+test_core_out-test_linklist.obj: test_linklist.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -MT test_core_out-test_linklist.obj -MD -MP -MF $(DEPDIR)/test_core_out-test_linklist.Tpo -c -o test_core_out-test_linklist.obj `if test -f 'test_linklist.c'; then $(CYGPATH_W) 'test_linklist.c'; else $(CYGPATH_W) '$(srcdir)/test_linklist.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_core_out-test_linklist.Tpo $(DEPDIR)/test_core_out-test_linklist.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test_linklist.c' object='test_core_out-test_linklist.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -c -o test_core_out-test_linklist.obj `if test -f 'test_linklist.c'; then $(CYGPATH_W) 'test_linklist.c'; else $(CYGPATH_W) '$(srcdir)/test_linklist.c'; fi`
+
+test_core_out-test_queue.o: test_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -MT test_core_out-test_queue.o -MD -MP -MF $(DEPDIR)/test_core_out-test_queue.Tpo -c -o test_core_out-test_queue.o `test -f 'test_queue.c' || echo '$(srcdir)/'`test_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_core_out-test_queue.Tpo $(DEPDIR)/test_core_out-test_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test_queue.c' object='test_core_out-test_queue.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -c -o test_core_out-test_queue.o `test -f 'test_queue.c' || echo '$(srcdir)/'`test_queue.c
+
+test_core_out-test_queue.obj: test_queue.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -MT test_core_out-test_queue.obj -MD -MP -MF $(DEPDIR)/test_core_out-test_queue.Tpo -c -o test_core_out-test_queue.obj `if test -f 'test_queue.c'; then $(CYGPATH_W) 'test_queue.c'; else $(CYGPATH_W) '$(srcdir)/test_queue.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_core_out-test_queue.Tpo $(DEPDIR)/test_core_out-test_queue.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='test_queue.c' object='test_core_out-test_queue.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_core_out_CFLAGS) $(CFLAGS) -c -o test_core_out-test_queue.obj `if test -f 'test_queue.c'; then $(CYGPATH_W) 'test_queue.c'; else $(CYGPATH_W) '$(srcdir)/test_queue.c'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
@@ -466,6 +503,8 @@ clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 		-rm -f ./$(DEPDIR)/test_core_out-test_core.Po
+	-rm -f ./$(DEPDIR)/test_core_out-test_linklist.Po
+	-rm -f ./$(DEPDIR)/test_core_out-test_queue.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
 	distclean-tags
@@ -512,6 +551,8 @@ installcheck-am:
 
 maintainer-clean: maintainer-clean-am
 		-rm -f ./$(DEPDIR)/test_core_out-test_core.Po
+	-rm -f ./$(DEPDIR)/test_core_out-test_linklist.Po
+	-rm -f ./$(DEPDIR)/test_core_out-test_queue.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
 

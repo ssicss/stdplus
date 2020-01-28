@@ -291,7 +291,8 @@ top_srcdir = @top_srcdir@
 SUBDIRS = src unit_test
 AM_CFLAGS = -I${ROOT_DIR}/inc\
 	      -std=c99\
-	      -O2\
+	      -O0\
+	      -g\
 	      -Wall
 
 all: config.h
@@ -768,8 +769,10 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
-
 export AM_CFLAGS
+
+menuconfig:
+	script/config.sh menuconfig
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

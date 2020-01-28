@@ -11,7 +11,7 @@ AM_INIT_AUTOMAKE(subdir-objects foreign)
 ROOT_DIR=`pwd`
 AC_SUBST(ROOT_DIR)
 : ${CFLAGS=""}
-AM_SILENT_RULES(yes)
+AM_SILENT_RULES(no)
 
 # Checks for programs.
 AC_PROG_CC
